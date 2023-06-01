@@ -27,4 +27,4 @@ Please refer the document Razorpay_Plugin_Guide.docx to complete the Payment plu
 This asset has been tested with HCL Commerce v9.1.x with React storefronts.
 
 # Asset Developer
-This asset has been developed by HCL-Partner Moptra and made it available for HCL Customers and other partners to use as opensource-asset.
+This asset has been developed by HCL-Partner Moptra https://moptra.com/ and made it available for HCL Customers and other partners to use as an opensource-asset.
