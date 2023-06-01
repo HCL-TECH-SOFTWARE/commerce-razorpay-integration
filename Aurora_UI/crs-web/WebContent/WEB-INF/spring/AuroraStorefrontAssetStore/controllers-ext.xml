@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Copyright [2022] [HCL America, Inc.]
+
+ 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+
+you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at
+
+ 
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+ 
+
+Unless required by applicable law or agreed to in writing, software
+
+distributed under the License is distributed on an "AS IS" BASIS,
+
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+See the License for the specific language governing permissions and
+
+limitations under the License.
+
+ =================================================================
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">  
+  <!-- Import customer controller files here 
+  <import resource="classpath:/WEB-INF/spring/AuroraStorefrontAssetStore/{my-controllers.xml}"/>
+  -->  
+  <bean id="actionUrlmapping-AuroraStorefrontAssetStore" class="com.ibm.commerce.store.mvc.registry.spring.StoreUrlHandlerMapping"> 
+    <property name="order" value="0"/>  
+    <property name="mappings"> 
+      <props>
+      	<prop key="/AjaxRazorPayCreateOrder">ajaxRazorPayCreateOrder</prop>
+        <prop key="/AjaxRazorPayProcessPaymentAndOrder">ajaxRazorPayProcessPaymentAndOrder</prop> 
+      <!-- B2C delta controller config -->
+      <!-- Add customer controller url mappings here  
+      <prop key="/ProductDisplay/AuroraStorefrontAssetStore">productDisplay/AuroraStorefrontAssetStore</prop>
+      -->
+      </props> 
+    </property> 
+  </bean>  
+  <bean id="viewUrlmapping-AuroraStorefrontAssetStore" class="com.ibm.commerce.store.mvc.registry.spring.StoreUrlHandlerMapping"> 
+    <property name="order" value="2"/>  
+    <property name="mappings"> 
+      <props>  	
+      </props> 
+    </property> 
+    </bean>
+    <!-- Razorpay start -->
+   <bean id="ajaxRazorPayCreateOrder" class="com.ibm.commerce.store.mvc.controller.spring.AjaxRESTActionController"> 
+    <property name="authenticate" value="0"/>  
+    <property name="credentialsAccepted" value="P"/>  
+    <property name="https" value="1"/>  
+    <property name="parameter" value="razorpay.createorder"/> 
+  </bean> 
+  <bean id="ajaxRazorPayProcessPaymentAndOrder" class="com.ibm.commerce.store.mvc.controller.spring.AjaxRESTActionController"> 
+    <property name="authenticate" value="0"/>  
+    <property name="credentialsAccepted" value="P"/>  
+    <property name="https" value="1"/>  
+    <property name="parameter" value="razorpay.processPaymentAndOrder"/> 
+  </bean> 
+  <!-- B2C delta controller config -->    
+  <!-- Add customer controller bean definitions here
+  <bean id="productDisplay/AuroraStorefrontAssetStore" class="com.ibm.commerce.store.mvc.controller.spring.BrowsingRESTActionController"> 
+    <property name="authenticate" value="0"/>  
+    <property name="https" value="1"/>  
+    <property name="generic" value="1"/>
+    <property name="parameter" value="productLayout.productLayout"/>
+    <property name="credentialsAccepted" value="P"/>
+  </bean>
+  -->   
+</beans>

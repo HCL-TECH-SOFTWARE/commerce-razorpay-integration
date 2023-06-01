@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<!DOCTYPE Policies SYSTEM "../dtd/accesscontrolpolicies.dtd">
+
+<Policies>
+
+	<Action Name="ExecuteCommand" CommandName="Execute"/>
+ 
+	<Action Name="com.hcl.commerce.payments.razorpay.commands.HCLRazorPayProcessOrderCmd" CommandName="com.hcl.commerce.payments.razorpay.commands.HCLRazorPayProcessOrderCmd"/>
+
+	<ResourceCategory Name="com.hcl.commerce.payments.razorpay.commands.HCLRazorPayProcessOrderCmdResourceCategory" ResourceBeanClass="com.hcl.commerce.payments.razorpay.commands.HCLRazorPayProcessOrderCmd">
+		<ResourceAction Name="ExecuteCommand"/>
+	</ResourceCategory>
+
+	<ResourceGroup Name="AllSiteUserCmdResourceGroup" OwnerID="RootOrganization">
+		<ResourceGroupResource Name="com.hcl.commerce.payments.razorpay.commands.HCLRazorPayProcessOrderCmdResourceCategory"/>
+	</ResourceGroup>
+ 
+</Policies>
